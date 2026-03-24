@@ -132,6 +132,7 @@ export default function LandingPage() {
           >
             <span style={{ color: "var(--text-primary)" }}>{tx("hero.title1")}</span>
             <br />
+            <span style={{ color: "var(--text-primary)" }}>{tx("hero.title2")}</span>{" "}
             <span className="gradient-hero">{tx("hero.title3")}</span>
           </motion.h1>
 
