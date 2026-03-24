@@ -36,6 +36,7 @@ const t = {
   // ── Problem ─────────────────────────────────────────────────
   problem: {
     tag: { it: "IL PROBLEMA", en: "THE PROBLEM" },
+    title: { it: "Il tuo sito attuale non lavora per te.", en: "Your current website doesn't work for you." },
     title1: { it: "Il tuo sito attuale", en: "Your current website" },
     title2: { it: "non lavora per te.", en: "doesn't work for you." },
     sub: {
@@ -77,6 +78,7 @@ const t = {
   // ── Solution ────────────────────────────────────────────────
   solution: {
     tag: { it: "COSA CREIAMO PER TE", en: "WHAT WE BUILD FOR YOU" },
+    title: { it: "Il tuo nuovo sito con AI integrata.", en: "Your new site with integrated AI." },
     title1: { it: "Il tuo nuovo sito con", en: "Your new site with" },
     sub: {
       it: "Un sito web immobiliare completo — listing, ricerca, pagine proprietà — con un'AI integrata che risponde ai clienti, qualifica i lead e fissa appuntamenti. Tutto con il tuo brand.",
@@ -149,6 +151,9 @@ const t = {
       { it: "Ore/anno per agente", en: "Hours/year per agent" },
       { it: "Lead persi per risposta tardiva", en: "Leads lost to late response" },
     ],
+    roi1: { it: "ROI medio", en: "Average ROI" },
+    roi2: { it: "Lead convertiti", en: "Leads converted" },
+    roi3: { it: "Tempo di setup", en: "Setup time" },
     inAction: { it: "IN AZIONE", en: "IN ACTION" },
     actionItems: [
       { it: "Risposta intelligente e contestuale in < 2 secondi", en: "Smart, contextual response in < 2 seconds" },
@@ -244,12 +249,15 @@ const t = {
   // ── CTA Finale ──────────────────────────────────────────────
   cta: {
     tag: { it: "INIZIA ORA", en: "START NOW" },
+    title: { it: "Pronto a trasformare la tua agenzia?", en: "Ready to transform your agency?" },
     title1: { it: "Il tuo prossimo sito", en: "Your next website" },
     title2: { it: "lavora anche quando dormi.", en: "works even while you sleep." },
     sub: {
       it: "Ogni giorno senza AI è un giorno in cui stai regalando lead ai tuoi concorrenti. Setup in 48 ore. Disdici quando vuoi.",
       en: "Every day without AI is a day you're giving leads to your competitors. Setup in 48 hours. Cancel anytime.",
     },
+    showcase: { it: "Vedi un esempio reale", en: "See a real example" },
+    pricing: { it: "Vedi i piani", en: "View plans" },
     btn1: { it: "Vedi un esempio reale", en: "See a real example" },
     btn2: { it: "Vedi i piani", en: "View plans" },
   },
@@ -297,6 +305,7 @@ const t = {
 
   // ── Footer ──────────────────────────────────────────────────
   footer: {
+    tagline: { it: "Siti web immobiliari con intelligenza artificiale integrata.", en: "Real estate websites with integrated artificial intelligence." },
     copy: { it: "© 2026 Aura PropTech · Built in Italy", en: "© 2026 Aura PropTech · Built in Italy" },
   },
 } as const;

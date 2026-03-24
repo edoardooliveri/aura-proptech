@@ -65,7 +65,7 @@ const mockClients: Client[] = [
 const planConfig: Record<Plan, { color: string; label: string; price: string }> = {
   starter: { color: "#64748b", label: "Starter", price: "€49,99/mese" },
   professional: { color: "#0070F3", label: "Professional", price: "€99,99/mese" },
-  enterprise: { color: "#FF2D78", label: "Enterprise", price: "€199,99/mese" },
+  enterprise: { color: "#FF2D78", label: "Enterprise", price: "€149,99/mese" },
 };
 
 const statusConfig: Record<SiteStatus, { color: string; label: string; icon: typeof CheckCircle }> = {
