@@ -211,10 +211,10 @@ export default function LandingPage() {
                     </div>
                     <div className="flex-1 text-left">
                       <div className="flex items-baseline gap-3 mb-2">
-                        <h3 className="font-mono font-bold text-lg">{item.title}</h3>
                         <span className="text-2xl font-bold gradient-blue">{problemStats[i]}</span>
+                        <h3 className="font-mono font-bold text-lg">{item.label[lang]}</h3>
                       </div>
-                      <p style={{ color: "var(--text-secondary)" }}>{item.description}</p>
+                      <p style={{ color: "var(--text-secondary)" }}>{item.desc[lang]}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -255,8 +255,8 @@ export default function LandingPage() {
                   >
                     <Icon size={24} style={{ color: "var(--blue-bright)" }} />
                   </div>
-                  <h3 className="font-mono font-bold text-lg mb-2">{item.title}</h3>
-                  <p style={{ color: "var(--text-secondary)" }}>{item.description}</p>
+                  <h3 className="font-mono font-bold text-lg mb-2">{item.title[lang]}</h3>
+                  <p style={{ color: "var(--text-secondary)" }}>{item.desc[lang]}</p>
                 </motion.div>
               );
             })}
