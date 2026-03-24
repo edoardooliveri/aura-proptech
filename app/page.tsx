@@ -48,17 +48,9 @@ export default function LandingPage() {
         transition={{ duration: 0.8, ease }}
         className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 md:px-6 lg:px-12 h-16 glass-strong"
       >
-        <div className="flex items-center gap-2.5">
-          <div
-            className="w-7 h-7 rounded-lg flex items-center justify-center"
-            style={{ background: "linear-gradient(135deg, #0070F3, #7B2FFF)" }}
-          >
-            <Zap size={14} className="text-white" />
-          </div>
-          <span className="font-mono font-bold text-sm tracking-tight">
-            AURA<span className="gradient-blue">PROPTECH</span>
-          </span>
-        </div>
+        <Link href="/" className="flex items-center gap-2">
+          <img src="/logo.png" alt="Aura PropTech" className="h-9" style={{ mixBlendMode: "screen" }} />
+        </Link>
 
         <div className="hidden md:flex items-center gap-8 text-sm font-mono" style={{ color: "var(--text-secondary)" }}>
           {navLinks.map(([label, href]) => (
@@ -362,15 +354,7 @@ export default function LandingPage() {
             {/* Brand */}
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <div
-                  className="w-6 h-6 rounded-lg flex items-center justify-center"
-                  style={{ background: "linear-gradient(135deg, #0070F3, #7B2FFF)" }}
-                >
-                  <Zap size={13} className="text-white" />
-                </div>
-                <span className="font-mono font-bold text-sm">
-                  AURA<span className="gradient-blue">PROPTECH</span>
-                </span>
+                <img src="/logo.png" alt="Aura PropTech" className="h-8" style={{ mixBlendMode: "screen" }} />
               </div>
               <p style={{ color: "var(--text-secondary)" }} className="text-sm">
                 {tx("footer.tagline")}

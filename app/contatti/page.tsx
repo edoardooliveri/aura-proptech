@@ -18,11 +18,8 @@ export default function ContattiPage() {
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
       {/* Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 h-16" style={{ background: "rgba(0,0,0,0.8)", backdropFilter: "blur(12px)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-        <Link href="/" className="flex items-center gap-2.5">
-          <div className="w-7 h-7 rounded-lg flex items-center justify-center" style={{ background: "linear-gradient(135deg, #0070F3, #7B2FFF)" }}>
-            <Zap size={14} className="text-white" />
-          </div>
-          <span className="font-mono font-bold text-sm">AURA<span style={{ color: "#0070F3" }}>PROPTECH</span></span>
+        <Link href="/" className="flex items-center gap-2">
+          <img src="/logo.png" alt="Aura PropTech" className="h-9" style={{ mixBlendMode: "screen" }} />
         </Link>
         <div className="hidden md:flex items-center gap-8 text-sm font-mono" style={{ color: "rgba(255,255,255,0.5)" }}>
           <Link href="/" className="hover:text-white transition-colors">Home</Link>

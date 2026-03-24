@@ -52,16 +52,8 @@ export default function BlogPage() {
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
       {/* Navbar mini */}
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 md:px-6 lg:px-12 h-16 glass-strong">
-        <Link href="/" className="flex items-center gap-2.5">
-          <div
-            className="w-7 h-7 rounded-lg flex items-center justify-center"
-            style={{ background: "linear-gradient(135deg, #0070F3, #7B2FFF)" }}
-          >
-            <Zap size={14} className="text-white" />
-          </div>
-          <span className="font-mono font-bold text-sm tracking-tight">
-            AURA<span className="gradient-blue">PROPTECH</span>
-          </span>
+        <Link href="/" className="flex items-center gap-2">
+          <img src="/logo.png" alt="Aura PropTech" className="h-9" style={{ mixBlendMode: "screen" }} />
         </Link>
         <div className="hidden md:flex items-center gap-8 text-sm font-mono" style={{ color: "var(--text-muted)" }}>
           <Link href="/" className="hover:text-white transition-colors">Home</Link>

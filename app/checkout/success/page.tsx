@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Zap, CheckCircle, ArrowRight, Clock, Mail } from "lucide-react";
+import { CheckCircle, ArrowRight, Clock, Mail, Sparkles } from "lucide-react";
 
 export default function CheckoutSuccess() {
   return (
@@ -37,12 +37,11 @@ export default function CheckoutSuccess() {
         </motion.div>
 
         <h1 className="font-mono text-3xl md:text-4xl font-bold mb-4">
-          Benvenuto in{" "}
-          <span className="gradient-blue">Aura Elite</span>
+          Pagamento completato!
         </h1>
 
         <p className="text-lg mb-8" style={{ color: "var(--text-secondary)" }}>
-          Pagamento completato. Il tuo Digital Partner sta per prendere vita.
+          Benvenuto in Aura PropTech. Il tuo sito sta per prendere vita.
         </p>
 
         {/* Timeline */}
@@ -60,18 +59,18 @@ export default function CheckoutSuccess() {
           {[
             {
               icon: Mail,
-              title: "Riceverai un'email entro 1 ora",
-              desc: "Con il link per la call di onboarding e il form per i tuoi dati agenzia.",
+              title: "Email di conferma in arrivo",
+              desc: "Riceverai la conferma del pagamento e i dettagli del tuo piano.",
             },
             {
               icon: Clock,
-              title: "Setup completato in 48h",
-              desc: "Configuriamo Core AI con il tuo brand, portfolio e preferenze.",
+              title: "Setup in lavorazione",
+              desc: "Iniziamo a costruire il tuo sito con i dati che hai inserito nell'onboarding.",
             },
             {
-              icon: Zap,
-              title: "Core AI va live",
-              desc: "Il tuo Digital Partner inizia a catturare lead 24/7 dal tuo sito.",
+              icon: Sparkles,
+              title: "Il tuo sito va live",
+              desc: "Ti aggiorneremo via email quando sarà tutto pronto. Potrai accedere alla tua dashboard per monitorare le performance.",
             },
           ].map((step, i) => (
             <div
@@ -102,22 +101,15 @@ export default function CheckoutSuccess() {
         </div>
 
         <Link
-          href={`/onboarding?session_id=${new URLSearchParams(typeof window !== "undefined" ? window.location.search : "").get("session_id") || ""}&plan=${new URLSearchParams(typeof window !== "undefined" ? window.location.search : "").get("plan") || "professional"}`}
+          href="/"
           className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-mono font-bold text-sm text-white transition-all hover:scale-105"
           style={{
             background: "linear-gradient(135deg, #00C781, #0070F3)",
             boxShadow: "0 4px 20px rgba(0,199,129,0.3)",
           }}
         >
-          Compila il form di onboarding
+          Torna alla Home
           <ArrowRight size={14} />
-        </Link>
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl font-mono text-xs mt-3 transition-opacity hover:opacity-80"
-          style={{ color: "var(--text-muted)" }}
-        >
-          oppure torna alla Home
         </Link>
       </motion.div>
     </div>

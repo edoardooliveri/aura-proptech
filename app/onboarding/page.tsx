@@ -134,11 +134,27 @@ function OnboardingContent() {
   const handleSubmit = async () => {
     setLoading(true);
     try {
+      // 1. Salva dati onboarding su Supabase
       await fetch("/api/onboarding", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ sessionId, plan: planParam, ...form }),
       });
+
+      // 2. Crea sessione checkout Stripe e redirect al pagamento
+      const checkoutRes = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ plan: planParam, agencyName: form.agencyName }),
+      });
+      const checkoutData = await checkoutRes.json();
+
+      if (checkoutData.url) {
+        window.location.href = checkoutData.url;
+        return; // Non serve setDone — il browser naviga a Stripe
+      }
+
+      // Fallback se Stripe non risponde
       setDone(true);
     } catch {
       alert("Errore nell'invio. Riprova.");

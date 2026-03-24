@@ -5,13 +5,18 @@ import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 
 export const dynamic = "force-dynamic";
-
-// Stripe sends raw body — we need to disable Next.js body parsing
 export const runtime = "nodejs";
 
 const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET!;
 
-// Supabase service-role client for server-side writes
+// ── Configurazione piani (stessa di checkout) ────────────────────
+const PLAN_CONFIG: Record<string, { setup: number; monthly: number; label: string }> = {
+  starter:      { setup: 400,  monthly: 49.99,  label: "Starter" },
+  professional: { setup: 1000, monthly: 99.99,  label: "Professional" },
+  enterprise:   { setup: 2000, monthly: 149.99, label: "Enterprise" },
+};
+
+// ── Supabase service-role client ─────────────────────────────────
 function getSupabase() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -22,15 +27,21 @@ function getSupabase() {
   return createClient(url, key);
 }
 
-// ── Notifica email via Resend (opzionale) ────────────────────────
-async function notifyEdoardo(agencyName: string, email: string, amount: string) {
+// ── Notifica email via Resend ────────────────────────────────────
+async function notifyEdoardo(
+  agencyName: string,
+  email: string,
+  amount: string,
+  planId: string
+) {
   const resendKey = process.env.RESEND_API_KEY;
   const notifyEmail = process.env.NOTIFY_EMAIL || "info@auraproptech.io";
+  const plan = PLAN_CONFIG[planId] || PLAN_CONFIG.professional;
 
-  // Log sempre, anche senza Resend
   console.log(
     `\n🎉 NUOVO PARTNER! Prepara il setup per: ${agencyName}\n` +
     `   Email: ${email}\n` +
+    `   Piano: ${plan.label}\n` +
     `   Importo: ${amount}\n`
   );
 
@@ -44,18 +55,18 @@ async function notifyEdoardo(agencyName: string, email: string, amount: string) 
     await resend.emails.send({
       from: "Core AI <notifiche@auraproptech.io>",
       to: [notifyEmail],
-      subject: `Nuovo Partner: ${agencyName}`,
+      subject: `Nuovo Partner ${plan.label}: ${agencyName}`,
       html: `
         <div style="font-family:monospace;background:#0A0A0F;color:#fff;padding:40px;border-radius:16px;">
           <h1 style="color:#0070F3;">Edoardo, abbiamo un nuovo partner!</h1>
           <h2 style="color:#FF2D78;">Prepara il setup per ${agencyName}</h2>
           <hr style="border-color:#222;" />
           <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Importo:</strong> ${amount}</p>
-          <p><strong>Piano:</strong> Aura Elite (€1.499 setup + €149/mese)</p>
+          <p><strong>Piano:</strong> Aura ${plan.label} (€${plan.setup} setup + €${plan.monthly}/mese)</p>
+          <p><strong>Importo primo pagamento:</strong> ${amount}</p>
           <p><strong>Data:</strong> ${new Date().toLocaleString("it-IT")}</p>
           <hr style="border-color:#222;" />
-          <p style="color:#00C781;">Setup da completare entro 48h</p>
+          <p style="color:#00C781;">Prossimi passi: invia link onboarding al cliente</p>
         </div>
       `,
     });
@@ -82,7 +93,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: msg }, { status: 400 });
   }
 
-  // ── Gestisci evento checkout completato ──────────────────────
+  // ── Checkout completato ──────────────────────────────────────
   if (event.type === "checkout.session.completed") {
     const session = event.data.object as Stripe.Checkout.Session;
 
@@ -92,6 +103,9 @@ export async function POST(req: NextRequest) {
       agencyField?.text?.value ||
       session.metadata?.agency_name ||
       "Agenzia sconosciuta";
+
+    const planId = session.metadata?.plan || "professional";
+    const plan = PLAN_CONFIG[planId] || PLAN_CONFIG.professional;
 
     const customerEmail = session.customer_details?.email || "n/a";
     const customerName = session.customer_details?.name || "";
@@ -110,25 +124,25 @@ export async function POST(req: NextRequest) {
         agency_name: agencyName,
         owner_name: customerName,
         email: customerEmail,
-        plan: "elite",
+        plan: planId,
         status: "active",
         setup_paid: true,
-        amount_setup: 1499,
-        amount_monthly: 149,
+        amount_setup: plan.setup,
+        amount_monthly: plan.monthly,
       });
 
       if (dbError) {
         console.error("[Webhook] Supabase insert error:", dbError.message);
       } else {
-        console.log("[Webhook] Customer saved:", agencyName);
+        console.log(`[Webhook] Customer saved: ${agencyName} (${plan.label})`);
       }
     }
 
     // ── Notifica ─────────────────────────────────────────────
-    await notifyEdoardo(agencyName, customerEmail, amountTotal);
+    await notifyEdoardo(agencyName, customerEmail, amountTotal, planId);
   }
 
-  // ── Gestisci cancellazione subscription ──────────────────────
+  // ── Cancellazione subscription ──────────────────────────────
   if (event.type === "customer.subscription.deleted") {
     const sub = event.data.object as Stripe.Subscription;
     const supabase = getSupabase();
