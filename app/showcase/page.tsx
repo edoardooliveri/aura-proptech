@@ -32,6 +32,7 @@ export default function ShowcasePage() {
         </Link>
         <div className="hidden md:flex items-center gap-8 text-sm font-mono" style={{ color: "rgba(255,255,255,0.5)" }}>
           <Link href="/" className="hover:text-white transition-colors">Home</Link>
+          <Link href="/blog" className="hover:text-white transition-colors">Blog</Link>
           <Link href="/pricing" className="hover:text-white transition-colors">Prezzi</Link>
           <Link href="/contatti" className="hover:text-white transition-colors">Contatti</Link>
         </div>

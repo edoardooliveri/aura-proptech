@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Clock, Calendar, ArrowLeft, Zap } from "lucide-react";
+import { ArrowRight, Clock, Calendar, Zap } from "lucide-react";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 const fadeUpView = (delay = 0) => ({
@@ -63,9 +63,12 @@ export default function BlogPage() {
             AURA<span className="gradient-blue">PROPTECH</span>
           </span>
         </Link>
-        <Link href="/" className="flex items-center gap-1.5 text-xs font-mono hover:underline" style={{ color: "var(--text-muted)" }}>
-          <ArrowLeft size={12} /> Home
-        </Link>
+        <div className="hidden md:flex items-center gap-8 text-sm font-mono" style={{ color: "var(--text-muted)" }}>
+          <Link href="/" className="hover:text-white transition-colors">Home</Link>
+          <Link href="/showcase" className="hover:text-white transition-colors">Sito Demo</Link>
+          <Link href="/pricing" className="hover:text-white transition-colors">Prezzi</Link>
+          <Link href="/contatti" className="hover:text-white transition-colors">Contatti</Link>
+        </div>
       </nav>
 
       <div className="pt-32 pb-20 px-4 md:px-6 max-w-4xl mx-auto">

@@ -123,13 +123,12 @@ export default function PricingPage() {
             AURA<span className="gradient-blue">PROPTECH</span>
           </span>
         </Link>
-        <Link
-          href="/"
-          className="text-sm font-mono hover:text-blue-400 transition-colors duration-300"
-          style={{ color: "var(--text-secondary)" }}
-        >
-          Home
-        </Link>
+        <div className="hidden md:flex items-center gap-8 text-sm font-mono" style={{ color: "var(--text-secondary)" }}>
+          <Link href="/" className="hover:text-white transition-colors">Home</Link>
+          <Link href="/showcase" className="hover:text-white transition-colors">Sito Demo</Link>
+          <Link href="/blog" className="hover:text-white transition-colors">Blog</Link>
+          <Link href="/contatti" className="hover:text-white transition-colors">Contatti</Link>
+        </div>
       </nav>
 
       <main className="pt-16 relative z-10">
