@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSearchParams } from "next/navigation";
 import {
@@ -90,6 +90,14 @@ const layoutOptions = [
 ];
 
 export default function OnboardingPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-[#0A0F1E] flex items-center justify-center"><div className="text-white text-lg">Caricamento...</div></div>}>
+      <OnboardingContent />
+    </Suspense>
+  );
+}
+
+function OnboardingContent() {
   const searchParams = useSearchParams();
   const sessionId = searchParams.get("session_id") ?? "";
   const planParam = searchParams.get("plan") ?? "professional";
