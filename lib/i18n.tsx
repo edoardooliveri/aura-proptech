@@ -13,33 +13,34 @@ const t = {
     pricing: { it: "Prezzi", en: "Pricing" },
     contact: { it: "Contatti", en: "Contact" },
     demoLive: { it: "Demo Live", en: "Live Demo" },
+    blog: { it: "Blog", en: "Blog" },
   },
 
   // ── Hero ────────────────────────────────────────────────────
   hero: {
-    badge: { it: "AI-First Real Estate Platform", en: "AI-First Real Estate Platform" },
-    title1: { it: "Il futuro del", en: "The future of" },
-    title2: { it: "real estate è", en: "real estate is" },
-    title3: { it: "artificiale.", en: "artificial." },
+    badge: { it: "Siti web immobiliari con AI integrata", en: "AI-Powered Real Estate Websites" },
+    title1: { it: "Ricreiamo il tuo", en: "We rebuild your" },
+    title2: { it: "sito immobiliare", en: "real estate website" },
+    title3: { it: "con l'AI dentro.", en: "with AI built in." },
     sub: {
-      it: "Un assistente AI ultra-intelligente, sempre online, che parla con i tuoi clienti, qualifica i lead e fissa appuntamenti — mentre tu sei in trattativa o a dormire.",
-      en: "An ultra-intelligent AI assistant, always online, that talks to your clients, qualifies leads and books appointments — while you're closing deals or sleeping.",
+      it: "Non un chatbot da aggiungere. Un sito web completo, moderno, con intelligenza artificiale integrata che parla con i clienti, qualifica i lead e fissa appuntamenti — 24 ore su 24.",
+      en: "Not a chatbot to add on. A complete, modern website with integrated artificial intelligence that talks to clients, qualifies leads and books appointments — 24/7.",
     },
-    cta1: { it: "Prova Core AI adesso", en: "Try Core AI now" },
+    cta1: { it: "Vedi un esempio reale", en: "See a real example" },
     cta2: { it: "Come funziona", en: "How it works" },
-    statResp: { it: "Risposta", en: "Response" },
+    statResp: { it: "Risposta AI", en: "AI Response" },
     statOp: { it: "Operativo", en: "Uptime" },
-    statSetup: { it: "Setup", en: "Setup" },
+    statSetup: { it: "Chiavi in mano", en: "Turnkey" },
   },
 
   // ── Problem ─────────────────────────────────────────────────
   problem: {
     tag: { it: "IL PROBLEMA", en: "THE PROBLEM" },
-    title1: { it: "Il sito immobiliare", en: "The real estate website" },
-    title2: { it: "del 2025 è rotto.", en: "of 2025 is broken." },
+    title1: { it: "Il tuo sito attuale", en: "Your current website" },
+    title2: { it: "non lavora per te.", en: "doesn't work for you." },
     sub: {
-      it: "Statico, muto, lento. Mentre il tuo sito dorme, i tuoi competitor con l'AI stanno già rispondendo ai tuoi clienti.",
-      en: "Static, silent, slow. While your site sleeps, your AI-powered competitors are already answering your clients.",
+      it: "Foto, prezzi e un modulo di contatto. Mentre il tuo sito è una brochure statica, i competitor con siti AI-powered stanno già rispondendo ai tuoi clienti.",
+      en: "Photos, prices and a contact form. While your site is a static brochure, competitors with AI-powered sites are already answering your clients.",
     },
     items: [
       {
@@ -75,11 +76,11 @@ const t = {
 
   // ── Solution ────────────────────────────────────────────────
   solution: {
-    tag: { it: "LA SOLUZIONE", en: "THE SOLUTION" },
-    title1: { it: "Presenta:", en: "Introducing:" },
+    tag: { it: "COSA CREIAMO PER TE", en: "WHAT WE BUILD FOR YOU" },
+    title1: { it: "Il tuo nuovo sito con", en: "Your new site with" },
     sub: {
-      it: "Non un chatbot. Non un FAQ automatizzato. Un'entità intelligente che capisce, ragiona e agisce — come il tuo agente più capace, ma sempre disponibile.",
-      en: "Not a chatbot. Not an automated FAQ. An intelligent entity that understands, reasons and acts — like your best agent, but always available.",
+      it: "Un sito web immobiliare completo — listing, ricerca, pagine proprietà — con un'AI integrata che risponde ai clienti, qualifica i lead e fissa appuntamenti. Tutto con il tuo brand.",
+      en: "A complete real estate website — listings, search, property pages — with integrated AI that answers clients, qualifies leads and books appointments. All under your brand.",
     },
     features: [
       {
@@ -135,11 +136,11 @@ const t = {
 
   // ── Demo ────────────────────────────────────────────────────
   demo: {
-    tag: { it: "DEMO INTERATTIVA", en: "INTERACTIVE DEMO" },
+    tag: { it: "PROVA L'AI DEL SITO", en: "TRY THE SITE'S AI" },
     title: { it: "Parla con", en: "Talk to" },
     sub: {
-      it: "Dimmi quante richieste ricevi al giorno. Core AI calcola in tempo reale quante ore stai perdendo — e quanto risparmieresti.",
-      en: "Tell me how many requests you get per day. Core AI calculates in real-time how many hours you're losing — and how much you'd save.",
+      it: "Questa è l'AI che integriamo nel tuo sito. Provala: dimmi quante richieste ricevi al giorno e scopri quanto risparmieresti.",
+      en: "This is the AI we integrate into your site. Try it: tell me how many requests you get per day and see how much you'd save.",
     },
     roiTag: { it: "ROI MEDIO DOCUMENTATO", en: "DOCUMENTED AVERAGE ROI" },
     roiRows: [
@@ -156,6 +157,37 @@ const t = {
       { it: "In produzione: connesso al tuo database immobili", en: "In production: connected to your property database" },
     ],
     activateCta: { it: "Attivalo nella mia agenzia", en: "Activate it in my agency" },
+  },
+
+  // ── Showcase ───────────────────────────────────────────────
+  showcase: {
+    tag: { it: "CASO STUDIO REALE", en: "REAL CASE STUDY" },
+    title1: { it: "Ecco cosa", en: "Here's what" },
+    title2: { it: "creiamo per te.", en: "we build for you." },
+    sub: {
+      it: "Questo non è un mockup. È il sito che abbiamo costruito per Armonie Immobiliare — con AI integrata, listing reali e pannello admin.",
+      en: "This isn't a mockup. It's the site we built for Armonie Immobiliare — with integrated AI, real listings and admin panel.",
+    },
+    clientName: { it: "Armonie Immobiliare", en: "Armonie Immobiliare" },
+    clientLocation: { it: "Savona · Riviera di Ponente", en: "Savona · Italian Riviera" },
+    features: [
+      {
+        title: { it: "Sito web completo", en: "Complete website" },
+        desc: { it: "Design moderno, responsive, SEO-ottimizzato con listing immobili, ricerca avanzata e pagine proprietà dedicate.", en: "Modern, responsive, SEO-optimized design with property listings, advanced search and dedicated property pages." },
+      },
+      {
+        title: { it: "AI Concierge integrata", en: "Integrated AI Concierge" },
+        desc: { it: "Un'assistente AI personalizzata che parla come un agente senior dell'agenzia, conosce il portfolio e qualifica i lead.", en: "A personalized AI assistant that speaks like a senior agency agent, knows the portfolio and qualifies leads." },
+      },
+      {
+        title: { it: "Pannello Admin", en: "Admin Panel" },
+        desc: { it: "Gestione immobili, lead, contatti e statistiche da un'unica dashboard. Nessuna competenza tecnica richiesta.", en: "Manage properties, leads, contacts and stats from one dashboard. No technical skills required." },
+      },
+      {
+        title: { it: "Database in tempo reale", en: "Real-time database" },
+        desc: { it: "L'AI è connessa al database immobili: sa cosa c'è disponibile, i prezzi, le caratteristiche. Zero informazioni inventate.", en: "The AI is connected to the property database: knows what's available, prices, features. Zero made-up info." },
+      },
+    ],
   },
 
   // ── Social proof ────────────────────────────────────────────
@@ -188,16 +220,37 @@ const t = {
     detailsCta: { it: "Scopri tutti i dettagli", en: "See all details" },
   },
 
+  // ── Testimonials ───────────────────────────────────────────
+  testimonials: {
+    tag: { it: "COSA DICONO I CLIENTI", en: "WHAT CLIENTS SAY" },
+    title1: { it: "Risultati", en: "Results" },
+    title2: { it: "che parlano da soli.", en: "that speak for themselves." },
+  },
+
+  // ── Before/After ──────────────────────────────────────────
+  beforeAfter: {
+    tag: { it: "TRASFORMAZIONE", en: "TRANSFORMATION" },
+    title1: { it: "Prima e", en: "Before and" },
+    title2: { it: "dopo Aura.", en: "after Aura." },
+    sub: {
+      it: "Guarda come trasformiamo un sito immobiliare generico in un sito moderno con AI integrata.",
+      en: "See how we transform a generic real estate website into a modern site with integrated AI.",
+    },
+    before: { it: "PRIMA", en: "BEFORE" },
+    after: { it: "DOPO", en: "AFTER" },
+    tryCta: { it: "Prova il configuratore live", en: "Try the live configurator" },
+  },
+
   // ── CTA Finale ──────────────────────────────────────────────
   cta: {
     tag: { it: "INIZIA ORA", en: "START NOW" },
-    title1: { it: "Il tuo competitor", en: "Your competitor" },
-    title2: { it: "sta già leggendo questa pagina.", en: "is already reading this page." },
+    title1: { it: "Il tuo prossimo sito", en: "Your next website" },
+    title2: { it: "lavora anche quando dormi.", en: "works even while you sleep." },
     sub: {
       it: "Ogni giorno senza AI è un giorno in cui stai regalando lead ai tuoi concorrenti. Setup in 48 ore. Disdici quando vuoi.",
       en: "Every day without AI is a day you're giving leads to your competitors. Setup in 48 hours. Cancel anytime.",
     },
-    btn1: { it: "Prova Core AI gratis", en: "Try Core AI free" },
+    btn1: { it: "Vedi un esempio reale", en: "See a real example" },
     btn2: { it: "Vedi i piani", en: "View plans" },
   },
 

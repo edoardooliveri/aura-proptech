@@ -102,15 +102,22 @@ export default function CheckoutSuccess() {
         </div>
 
         <Link
-          href="/"
+          href={`/onboarding?session_id=${new URLSearchParams(typeof window !== "undefined" ? window.location.search : "").get("session_id") || ""}&plan=${new URLSearchParams(typeof window !== "undefined" ? window.location.search : "").get("plan") || "professional"}`}
           className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-mono font-bold text-sm text-white transition-all hover:scale-105"
           style={{
-            background: "linear-gradient(135deg, #0070F3, #7B2FFF)",
-            boxShadow: "0 4px 20px rgba(0,112,243,0.3)",
+            background: "linear-gradient(135deg, #00C781, #0070F3)",
+            boxShadow: "0 4px 20px rgba(0,199,129,0.3)",
           }}
         >
-          Torna alla Home
+          Compila il form di onboarding
           <ArrowRight size={14} />
+        </Link>
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl font-mono text-xs mt-3 transition-opacity hover:opacity-80"
+          style={{ color: "var(--text-muted)" }}
+        >
+          oppure torna alla Home
         </Link>
       </motion.div>
     </div>

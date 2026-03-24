@@ -6,7 +6,8 @@ import {
   Zap, Brain, Clock, TrendingUp, Shield, Cpu,
   ArrowRight, ChevronDown, Check, Star,
   PhoneOff, MailWarning, Moon, Timer, Users, Sparkles,
-  Globe,
+  Globe, Monitor, MessageCircle, Database, Settings,
+  ExternalLink,
 } from "lucide-react";
 import Link from "next/link";
 import CoreAIDemo from "@/components/CoreAIDemo";
@@ -46,6 +47,7 @@ export default function LandingPage() {
     [tx("nav.solution"), "#soluzione"],
     [tx("nav.demo"), "#demo"],
     [tx("nav.pricing"), "#prezzi"],
+    [tx("nav.blog"), "/blog"],
     [tx("nav.contact"), "#contatti"],
   ];
 
@@ -166,7 +168,7 @@ export default function LandingPage() {
             className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center mb-14 md:mb-20"
           >
             <a
-              href="#demo"
+              href="#showcase"
               className="group inline-flex items-center justify-center gap-2.5 px-6 py-3.5 md:px-8 md:py-4 rounded-xl font-mono font-bold text-sm md:text-base text-white transition-all duration-300 hover:scale-105"
               style={{
                 background: "linear-gradient(135deg, #0070F3, #7B2FFF)",
@@ -422,6 +424,207 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* ── SHOWCASE / CASO STUDIO ───────────────────────────────── */}
+      <section id="showcase" className="py-20 md:py-32 px-4 md:px-6 relative">
+        <div className="max-w-6xl mx-auto relative z-10">
+          <motion.div
+            {...fadeUpView(0)}
+            className="text-center mb-16"
+          >
+            <p className="text-xs font-mono font-semibold mb-5 tracking-[0.3em] uppercase" style={{ color: "var(--pink)" }}>
+              {tx("showcase.tag")}
+            </p>
+            <h2 className="font-mono text-3xl md:text-5xl lg:text-6xl font-bold mb-6">
+              <span style={{ color: "var(--text-primary)" }}>{tx("showcase.title1")}</span>{" "}
+              <span className="gradient-pink-blue">{tx("showcase.title2")}</span>
+            </h2>
+            <p className="text-lg max-w-2xl mx-auto" style={{ color: "var(--text-secondary)" }}>
+              {tx("showcase.sub")}
+            </p>
+          </motion.div>
+
+          {/* Browser mockup */}
+          <motion.div
+            {...fadeUpView(0.15)}
+            className="rounded-2xl overflow-hidden mb-12"
+            style={{
+              border: "1px solid rgba(255,255,255,0.1)",
+              boxShadow: "0 0 80px rgba(0,112,243,0.15), 0 40px 80px rgba(0,0,0,0.5)",
+            }}
+          >
+            {/* Browser chrome */}
+            <div
+              className="flex items-center gap-3 px-5 py-3"
+              style={{ background: "rgba(20,25,40,0.95)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}
+            >
+              <div className="flex gap-1.5">
+                <div className="w-2.5 h-2.5 rounded-full" style={{ background: "#FF5F57" }} />
+                <div className="w-2.5 h-2.5 rounded-full" style={{ background: "#FFBD2E" }} />
+                <div className="w-2.5 h-2.5 rounded-full" style={{ background: "#28CA42" }} />
+              </div>
+              <div
+                className="flex-1 mx-4 px-4 py-1.5 rounded-lg text-xs font-mono text-center"
+                style={{ background: "rgba(255,255,255,0.05)", color: "var(--text-muted)" }}
+              >
+                armonie-immobiliare.it
+              </div>
+            </div>
+
+            {/* Site preview — gradient visual with feature highlights */}
+            <div
+              className="relative"
+              style={{
+                background: "linear-gradient(180deg, rgba(10,15,35,1) 0%, rgba(15,20,45,1) 50%, rgba(10,15,30,1) 100%)",
+                minHeight: "400px",
+              }}
+            >
+              {/* Abstract site representation */}
+              <div className="p-8 md:p-12">
+                {/* Navbar mockup */}
+                <div className="flex items-center justify-between mb-10 opacity-60">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-lg" style={{ background: "linear-gradient(135deg, #C9A96E, #8B7355)" }} />
+                    <div className="h-3 w-32 rounded-full" style={{ background: "rgba(255,255,255,0.15)" }} />
+                  </div>
+                  <div className="hidden md:flex gap-4">
+                    {[1,2,3,4].map(i => (
+                      <div key={i} className="h-2.5 w-16 rounded-full" style={{ background: "rgba(255,255,255,0.1)" }} />
+                    ))}
+                  </div>
+                </div>
+
+                {/* Hero mockup */}
+                <div className="text-center mb-10">
+                  <div className="h-4 w-48 mx-auto mb-4 rounded-full" style={{ background: "rgba(201,169,110,0.3)" }} />
+                  <div className="h-8 md:h-10 w-3/4 max-w-lg mx-auto mb-3 rounded-lg" style={{ background: "rgba(255,255,255,0.12)" }} />
+                  <div className="h-8 md:h-10 w-1/2 max-w-xs mx-auto mb-6 rounded-lg" style={{ background: "rgba(255,255,255,0.08)" }} />
+                  <div className="flex items-center justify-center gap-3">
+                    <div
+                      className="h-10 w-40 rounded-xl flex items-center justify-center"
+                      style={{ background: "linear-gradient(135deg, rgba(201,169,110,0.4), rgba(139,115,85,0.4))" }}
+                    >
+                      <span className="text-[10px] font-mono" style={{ color: "rgba(255,255,255,0.7)" }}>
+                        🔍 {lang === "it" ? "Cerca immobili..." : "Search properties..."}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Property cards mockup */}
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+                  {[1,2,3].map(i => (
+                    <div
+                      key={i}
+                      className="rounded-xl overflow-hidden"
+                      style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)" }}
+                    >
+                      <div
+                        className="h-24 md:h-32"
+                        style={{
+                          background: `linear-gradient(135deg, rgba(${60+i*30},${80+i*20},${120+i*15},0.3), rgba(${40+i*20},${60+i*15},${100+i*10},0.2))`,
+                        }}
+                      />
+                      <div className="p-3">
+                        <div className="h-2.5 w-3/4 rounded-full mb-2" style={{ background: "rgba(255,255,255,0.12)" }} />
+                        <div className="h-2 w-1/2 rounded-full mb-3" style={{ background: "rgba(255,255,255,0.06)" }} />
+                        <div className="h-3 w-20 rounded-full" style={{ background: "rgba(201,169,110,0.3)" }} />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* AI Chat bubble overlay */}
+              <div
+                className="absolute bottom-6 right-6 md:bottom-8 md:right-8"
+              >
+                <div
+                  className="rounded-2xl p-4 max-w-xs"
+                  style={{
+                    background: "rgba(10,15,30,0.95)",
+                    border: "1px solid rgba(0,112,243,0.3)",
+                    boxShadow: "0 0 30px rgba(0,112,243,0.2), 0 8px 32px rgba(0,0,0,0.5)",
+                    backdropFilter: "blur(20px)",
+                  }}
+                >
+                  <div className="flex items-center gap-2 mb-2">
+                    <Sparkles size={12} style={{ color: "var(--blue-bright)" }} />
+                    <span className="text-[10px] font-mono font-bold" style={{ color: "var(--blue-bright)" }}>
+                      AI Concierge
+                    </span>
+                    <span className="ml-auto w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                  </div>
+                  <p className="text-xs leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+                    {lang === "it"
+                      ? "Ciao! Sono Barbara 😊 Stai cercando casa a Savona? Dimmi zona e budget, ti trovo le migliori!"
+                      : "Hi! I'm Barbara 😊 Looking for a home in Savona? Tell me the area and budget, I'll find the best ones!"}
+                  </p>
+                </div>
+                {/* Chat trigger button */}
+                <div
+                  className="w-12 h-12 rounded-full flex items-center justify-center mt-2 ml-auto"
+                  style={{
+                    background: "linear-gradient(135deg, #0070F3, #7B2FFF)",
+                    boxShadow: "0 0 20px rgba(0,112,243,0.4)",
+                  }}
+                >
+                  <MessageCircle size={18} className="text-white" />
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Client badge */}
+          <motion.div {...fadeUpView(0.2)} className="text-center mb-10">
+            <p className="font-mono font-bold text-lg" style={{ color: "var(--text-primary)" }}>
+              {tx("showcase.clientName")}
+            </p>
+            <p className="text-xs font-mono mt-1" style={{ color: "var(--text-muted)" }}>
+              {tx("showcase.clientLocation")}
+            </p>
+          </motion.div>
+
+          {/* Feature grid */}
+          <div className="grid md:grid-cols-2 gap-5">
+            {(t.showcase?.features ?? []).map((f, i) => {
+              const icons = [Monitor, MessageCircle, Settings, Database];
+              const Icon = icons[i] ?? Monitor;
+              return (
+                <motion.div
+                  key={i}
+                  {...fadeUpView(0.1 + i * 0.08)}
+                  className="rounded-2xl p-6 relative overflow-hidden"
+                  style={{
+                    background: "rgba(255,255,255,0.02)",
+                    border: "1px solid rgba(255,255,255,0.06)",
+                  }}
+                >
+                  <div className="flex items-start gap-4">
+                    <div
+                      className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                      style={{
+                        background: i % 2 === 0 ? "rgba(0,112,243,0.08)" : "rgba(255,45,120,0.08)",
+                        border: i % 2 === 0 ? "1px solid rgba(0,112,243,0.15)" : "1px solid rgba(255,45,120,0.15)",
+                      }}
+                    >
+                      <Icon size={18} style={{ color: i % 2 === 0 ? "var(--blue-bright)" : "var(--pink)" }} />
+                    </div>
+                    <div>
+                      <h3 className="font-mono font-semibold text-sm mb-1.5" style={{ color: "var(--text-primary)" }}>
+                        {f.title[lang]}
+                      </h3>
+                      <p className="text-xs leading-relaxed" style={{ color: "var(--text-muted)" }}>
+                        {f.desc[lang]}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* ── SOCIAL PROOF ────────────────────────────────────────── */}
       <section className="py-16 md:py-24 px-4 md:px-6 relative">
         <div className="max-w-3xl mx-auto text-center relative z-10">
@@ -451,6 +654,252 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* ── TESTIMONIALS ────────────────────────────────────────────── */}
+      <section className="py-20 md:py-32 px-4 md:px-6 relative">
+        <div className="max-w-5xl mx-auto relative z-10">
+          <motion.div {...fadeUpView(0)} className="text-center mb-14">
+            <p className="text-xs font-mono font-semibold mb-5 tracking-[0.3em] uppercase" style={{ color: "var(--blue)" }}>
+              {tx("testimonials.tag")}
+            </p>
+            <h2 className="font-mono text-3xl md:text-5xl lg:text-6xl font-bold mb-6">
+              <span style={{ color: "var(--text-primary)" }}>{tx("testimonials.title1")} </span>
+              <span className="gradient-blue">{tx("testimonials.title2")}</span>
+            </h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                quote: lang === "it"
+                  ? "Da quando abbiamo il sito con AI, i lead qualificati sono triplicati. L'assistente risponde ai clienti anche alle 3 di notte."
+                  : "Since we got the AI-powered site, qualified leads tripled. The assistant responds to clients even at 3 AM.",
+                name: "Marco Ferretti",
+                agency: "Ferretti Immobiliare, Milano",
+                plan: "Professional",
+                color: "#0070F3",
+              },
+              {
+                quote: lang === "it"
+                  ? "Il ROI è stato incredibile. In 3 mesi abbiamo recuperato l'investimento e ora l'AI gestisce il 70% delle prime interazioni."
+                  : "The ROI was incredible. In 3 months we recouped the investment and now AI handles 70% of first interactions.",
+                name: "Giulia Marchetti",
+                agency: "Casa & Sole, Rimini",
+                plan: "Enterprise",
+                color: "#FF2D78",
+              },
+              {
+                quote: lang === "it"
+                  ? "Anche senza AI, il sito che ci hanno fatto è anni luce avanti rispetto a quello che avevamo. Professionale e veloce."
+                  : "Even without AI, the site they built is light years ahead of what we had. Professional and fast.",
+                name: "Antonio Russo",
+                agency: "Russo Real Estate, Napoli",
+                plan: "Starter",
+                color: "#64748b",
+              },
+            ].map((t, i) => (
+              <motion.div
+                key={i}
+                {...fadeUpView(0.1 + i * 0.1)}
+                className="rounded-2xl p-6 flex flex-col justify-between"
+                style={{
+                  background: "rgba(255,255,255,0.03)",
+                  border: "1px solid rgba(255,255,255,0.06)",
+                }}
+              >
+                <div>
+                  <div className="flex gap-0.5 mb-4">
+                    {[...Array(5)].map((_, s) => (
+                      <Star key={s} size={14} fill="#FBBF24" color="#FBBF24" />
+                    ))}
+                  </div>
+                  <p className="text-sm leading-relaxed mb-6" style={{ color: "var(--text-secondary)" }}>
+                    &ldquo;{t.quote}&rdquo;
+                  </p>
+                </div>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="font-mono text-sm font-bold" style={{ color: "var(--text-primary)" }}>{t.name}</p>
+                    <p className="text-xs font-mono" style={{ color: "var(--text-muted)" }}>{t.agency}</p>
+                  </div>
+                  <span
+                    className="text-[10px] font-mono font-bold px-2.5 py-1 rounded-full"
+                    style={{ background: `${t.color}20`, color: t.color, border: `1px solid ${t.color}40` }}
+                  >
+                    {t.plan}
+                  </span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── BEFORE / AFTER ────────────────────────────────────────── */}
+      <section className="py-20 md:py-32 px-4 md:px-6 relative">
+        <div className="max-w-5xl mx-auto relative z-10">
+          <motion.div {...fadeUpView(0)} className="text-center mb-14">
+            <p className="text-xs font-mono font-semibold mb-5 tracking-[0.3em] uppercase" style={{ color: "var(--pink)" }}>
+              {tx("beforeAfter.tag")}
+            </p>
+            <h2 className="font-mono text-3xl md:text-5xl lg:text-6xl font-bold mb-6">
+              <span style={{ color: "var(--text-primary)" }}>{tx("beforeAfter.title1")} </span>
+              <span className="gradient-pink-blue">{tx("beforeAfter.title2")}</span>
+            </h2>
+            <p className="text-lg max-w-2xl mx-auto" style={{ color: "var(--text-secondary)" }}>
+              {tx("beforeAfter.sub")}
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* BEFORE */}
+            <motion.div {...fadeUpView(0.1)} className="rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(255,45,120,0.2)" }}>
+              <div className="px-4 py-2 text-center" style={{ background: "rgba(255,45,120,0.08)" }}>
+                <span className="text-[10px] font-mono font-bold tracking-widest" style={{ color: "var(--pink)" }}>{tx("beforeAfter.before")}</span>
+              </div>
+              <div className="p-6" style={{ background: "rgba(255,255,255,0.02)" }}>
+                {/* Old-style site mockup */}
+                <div className="rounded-lg overflow-hidden" style={{ background: "#f5f5f5", border: "1px solid #ddd" }}>
+                  <div className="px-4 py-2 flex items-center gap-2" style={{ background: "#e0e0e0" }}>
+                    <div className="flex gap-1">
+                      <div className="w-2 h-2 rounded-full" style={{ background: "#ccc" }} />
+                      <div className="w-2 h-2 rounded-full" style={{ background: "#ccc" }} />
+                      <div className="w-2 h-2 rounded-full" style={{ background: "#ccc" }} />
+                    </div>
+                    <div className="flex-1 h-4 rounded bg-white mx-2" />
+                  </div>
+                  <div className="p-4">
+                    <div className="flex items-center gap-2 mb-4">
+                      <div className="w-6 h-6 rounded bg-gray-300" />
+                      <div className="h-3 w-24 rounded bg-gray-300" />
+                      <div className="ml-auto flex gap-3">
+                        <div className="h-2 w-10 rounded bg-gray-200" />
+                        <div className="h-2 w-10 rounded bg-gray-200" />
+                        <div className="h-2 w-10 rounded bg-gray-200" />
+                      </div>
+                    </div>
+                    <div className="h-20 rounded mb-3" style={{ background: "linear-gradient(135deg, #d0d0d0, #e8e8e8)" }} />
+                    <div className="h-3 w-3/4 rounded bg-gray-300 mb-2" />
+                    <div className="h-3 w-1/2 rounded bg-gray-200 mb-4" />
+                    <div className="grid grid-cols-3 gap-2">
+                      {[1,2,3].map(i => (
+                        <div key={i} className="rounded" style={{ background: "#e8e8e8" }}>
+                          <div className="h-10 bg-gray-200" />
+                          <div className="p-1.5">
+                            <div className="h-1.5 w-full rounded bg-gray-300 mb-1" />
+                            <div className="h-1.5 w-2/3 rounded bg-gray-200" />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-1.5 mt-4">
+                  {[
+                    lang === "it" ? "Template generico, non personalizzato" : "Generic, non-personalized template",
+                    lang === "it" ? "Nessuna AI, solo form di contatto" : "No AI, just contact form",
+                    lang === "it" ? "Design datato, non responsive" : "Dated design, not responsive",
+                    lang === "it" ? "Nessuna qualificazione lead" : "No lead qualification",
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center gap-2 text-xs font-mono" style={{ color: "var(--pink)" }}>
+                      <span>✗</span> {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+
+            {/* AFTER */}
+            <motion.div {...fadeUpView(0.2)} className="rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(0,199,129,0.2)" }}>
+              <div className="px-4 py-2 text-center" style={{ background: "rgba(0,199,129,0.08)" }}>
+                <span className="text-[10px] font-mono font-bold tracking-widest" style={{ color: "var(--green)" }}>{tx("beforeAfter.after")}</span>
+              </div>
+              <div className="p-6" style={{ background: "rgba(255,255,255,0.02)" }}>
+                {/* Modern Aura site mockup */}
+                <div className="rounded-lg overflow-hidden" style={{ background: "#0A0F1E", border: "1px solid rgba(255,255,255,0.1)" }}>
+                  <div className="px-4 py-2 flex items-center gap-2" style={{ background: "rgba(20,25,40,0.95)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+                    <div className="flex gap-1">
+                      <div className="w-2 h-2 rounded-full" style={{ background: "#FF5F57" }} />
+                      <div className="w-2 h-2 rounded-full" style={{ background: "#FFBD2E" }} />
+                      <div className="w-2 h-2 rounded-full" style={{ background: "#28CA42" }} />
+                    </div>
+                    <div className="flex-1 h-4 rounded mx-2" style={{ background: "rgba(255,255,255,0.05)" }} />
+                  </div>
+                  <div className="p-4">
+                    <div className="flex items-center gap-2 mb-4">
+                      <div className="w-6 h-6 rounded" style={{ background: "linear-gradient(135deg, #C9A96E, #8B7355)" }} />
+                      <div className="h-3 w-24 rounded" style={{ background: "rgba(255,255,255,0.15)" }} />
+                      <div className="ml-auto flex gap-3">
+                        <div className="h-2 w-10 rounded" style={{ background: "rgba(255,255,255,0.1)" }} />
+                        <div className="h-2 w-10 rounded" style={{ background: "rgba(255,255,255,0.1)" }} />
+                      </div>
+                    </div>
+                    <div className="text-center mb-3">
+                      <div className="inline-flex px-2 py-0.5 rounded-full mb-2" style={{ background: "rgba(201,169,110,0.15)" }}>
+                        <span className="text-[7px]" style={{ color: "#C9A96E" }}>✦ AI</span>
+                      </div>
+                      <div className="h-4 w-3/4 mx-auto rounded mb-1.5" style={{ background: "rgba(255,255,255,0.12)" }} />
+                      <div className="h-3 w-1/2 mx-auto rounded mb-3" style={{ background: "rgba(201,169,110,0.3)" }} />
+                      <div className="h-7 w-32 mx-auto rounded-lg" style={{ background: "rgba(201,169,110,0.2)", border: "1px solid rgba(201,169,110,0.3)" }} />
+                    </div>
+                    <div className="grid grid-cols-3 gap-2">
+                      {[1,2,3].map(i => (
+                        <div key={i} className="rounded-lg overflow-hidden" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)" }}>
+                          <div className="h-10" style={{ background: `linear-gradient(135deg, rgba(201,169,110,${0.1+i*0.05}), rgba(100,80,50,0.1))` }} />
+                          <div className="p-1.5">
+                            <div className="h-1.5 w-full rounded mb-1" style={{ background: "rgba(255,255,255,0.1)" }} />
+                            <div className="h-1.5 w-12 rounded" style={{ background: "rgba(201,169,110,0.3)" }} />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    {/* AI bubble */}
+                    <div className="flex justify-end mt-2">
+                      <div className="rounded-lg p-2 max-w-[120px]" style={{ background: "rgba(10,15,30,0.95)", border: "1px solid rgba(0,112,243,0.2)" }}>
+                        <div className="flex items-center gap-1 mb-1">
+                          <Sparkles size={6} style={{ color: "#0070F3" }} />
+                          <span className="text-[6px] font-bold" style={{ color: "#0070F3" }}>AI</span>
+                          <span className="ml-auto w-1 h-1 rounded-full bg-green-400" />
+                        </div>
+                        <div className="h-1 w-full rounded mb-0.5" style={{ background: "rgba(255,255,255,0.08)" }} />
+                        <div className="h-1 w-3/4 rounded" style={{ background: "rgba(255,255,255,0.06)" }} />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-1.5 mt-4">
+                  {[
+                    lang === "it" ? "Design moderno, brand personalizzato" : "Modern design, custom brand",
+                    lang === "it" ? "AI Concierge che risponde 24/7" : "AI Concierge answering 24/7",
+                    lang === "it" ? "Responsive, SEO ottimizzato, veloce" : "Responsive, SEO optimized, fast",
+                    lang === "it" ? "Lead qualificati automaticamente" : "Automatically qualified leads",
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center gap-2 text-xs font-mono" style={{ color: "var(--green)" }}>
+                      <Check size={11} /> {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Preview CTA */}
+          <motion.div {...fadeUpView(0.3)} className="text-center mt-10">
+            <Link
+              href="/preview"
+              className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-xl font-mono font-bold text-sm text-white transition-all hover:scale-105"
+              style={{
+                background: "linear-gradient(135deg, #FF2D78, #7B2FFF)",
+                boxShadow: "0 0 30px rgba(255,45,120,0.2), 0 8px 24px rgba(0,0,0,0.4)",
+              }}
+            >
+              <Sparkles size={16} />
+              {tx("beforeAfter.tryCta")}
+              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
       {/* ── PRICING CTA ───────────────────────────────────────────── */}
       <section id="prezzi" className="py-20 md:py-32 px-4 md:px-6 relative">
         <div className="max-w-3xl mx-auto relative z-10">
@@ -470,9 +919,121 @@ export default function LandingPage() {
             </p>
           </motion.div>
 
+<<<<<<< HEAD
           <motion.div {...fadeUpView(0.15)}>
             <div
               className="rounded-2xl p-px border-shimmer overflow-hidden"
+=======
+          {/* Mini pricing cards */}
+          <div className="grid md:grid-cols-3 gap-4">
+            {[
+              {
+                name: "Starter",
+                subtitle: lang === "it" ? "Solo sito web" : "Website only",
+                price: "€24,99",
+                setup: "€399,99",
+                color: "#64748b",
+                features: [
+                  lang === "it" ? "Sito web professionale responsive" : "Responsive professional website",
+                  lang === "it" ? "Pannello admin gestione immobili" : "Property management admin panel",
+                  lang === "it" ? "Database immobili" : "Property database",
+                  lang === "it" ? "Dominio + hosting + manutenzione" : "Domain + hosting + maintenance",
+                  lang === "it" ? "SEO ottimizzato" : "SEO optimized",
+                ],
+                highlight: false,
+              },
+              {
+                name: "Professional",
+                subtitle: lang === "it" ? "Sito + AI" : "Website + AI",
+                price: "€149,99",
+                setup: "€999,99",
+                color: "#0070F3",
+                features: [
+                  lang === "it" ? "Tutto di Starter +" : "All of Starter +",
+                  lang === "it" ? "AI Concierge 24/7 (Core AI)" : "AI Concierge 24/7 (Core AI)",
+                  lang === "it" ? "Qualificazione lead automatica" : "Automatic lead qualification",
+                  lang === "it" ? "Integrazione WhatsApp Business" : "WhatsApp Business integration",
+                  lang === "it" ? "Report mensile performance" : "Monthly performance report",
+                ],
+                highlight: true,
+              },
+              {
+                name: "Enterprise",
+                subtitle: lang === "it" ? "Full service" : "Full service",
+                price: "€199,99",
+                setup: "€1.999,99",
+                color: "#FF2D78",
+                features: [
+                  lang === "it" ? "Tutto di Professional +" : "All of Professional +",
+                  lang === "it" ? "AI multilingue avanzata" : "Advanced multilingual AI",
+                  lang === "it" ? "Account manager dedicato" : "Dedicated account manager",
+                  lang === "it" ? "Personalizzazione avanzata AI" : "Advanced AI customization",
+                  lang === "it" ? "Integrazione CRM + supporto prioritario" : "CRM integration + priority support",
+                ],
+                highlight: false,
+              },
+            ].map((plan, idx) => (
+              <motion.div
+                key={idx}
+                {...fadeUpView(0.1 + idx * 0.08)}
+              >
+                <div
+                  className={`rounded-2xl ${plan.highlight ? "p-px border-shimmer" : "p-px"} overflow-hidden h-full`}
+                  style={{
+                    boxShadow: plan.highlight
+                      ? "0 0 60px rgba(0,112,243,0.2), 0 0 120px rgba(255,45,120,0.1), 0 40px 80px rgba(0,0,0,0.5)"
+                      : "none",
+                    border: plan.highlight ? undefined : "1px solid rgba(255,255,255,0.08)",
+                  }}
+                >
+                  <div
+                    className="rounded-2xl p-6 flex flex-col h-full"
+                    style={{ background: "rgba(10,15,30,0.95)", backdropFilter: "blur(20px)" }}
+                  >
+                    {/* Plan name */}
+                    <div className="flex items-center gap-2 mb-1">
+                      <span
+                        className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full"
+                        style={{ background: `${plan.color}15`, color: plan.color, border: `1px solid ${plan.color}30` }}
+                      >
+                        {plan.name}
+                      </span>
+                      {plan.highlight && <Star size={12} className="fill-current" style={{ color: "#F59E0B" }} />}
+                    </div>
+                    <p className="text-[10px] font-mono mb-3" style={{ color: "var(--text-muted)" }}>
+                      {plan.subtitle}
+                    </p>
+
+                    {/* Price */}
+                    <div className="mb-1">
+                      <span className="text-3xl font-mono font-bold text-white">{plan.price}</span>
+                      <span className="text-xs font-mono ml-1" style={{ color: "var(--text-muted)" }}>{tx("pricing.perMonth")}</span>
+                    </div>
+                    <p className="text-[11px] font-mono mb-5" style={{ color: "var(--text-muted)" }}>
+                      + {plan.setup} {tx("pricing.setupVat")}
+                    </p>
+
+                    {/* Features */}
+                    <div className="flex flex-col gap-2 mb-5 flex-1">
+                      {plan.features.map((f, j) => (
+                        <div key={j} className="flex items-center gap-2 text-xs font-mono" style={{ color: "var(--text-secondary)" }}>
+                          <Check size={11} style={{ color: plan.color, flexShrink: 0 }} />
+                          {f}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <motion.div {...fadeUpView(0.3)} className="text-center mt-8">
+            <Link
+              href="/pricing"
+              className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl font-mono font-bold text-sm text-white transition-all duration-300 hover:scale-105"
+>>>>>>> 1bfb328 (feat: dashboard cliente, admin panel, configuratore live, notifiche, recensioni, before/after)
               style={{
                 boxShadow: "0 0 60px rgba(0,112,243,0.2), 0 0 120px rgba(255,45,120,0.1), 0 40px 80px rgba(0,0,0,0.5)",
               }}
@@ -542,7 +1103,7 @@ export default function LandingPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="#demo"
+              href="#showcase"
               className="group inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl font-mono font-bold text-base text-white transition-all hover:scale-105"
               style={{
                 background: "linear-gradient(135deg, #0070F3, #7B2FFF)",
@@ -669,9 +1230,20 @@ export default function LandingPage() {
             AURA<span className="gradient-blue">PROPTECH</span>
           </span>
         </div>
-        <p className="text-xs font-mono" style={{ color: "var(--text-muted)" }}>
+        <p className="text-xs font-mono mb-3" style={{ color: "var(--text-muted)" }}>
           {tx("footer.copy")}
         </p>
+        <div className="flex items-center justify-center gap-4">
+          {[
+            { label: "Privacy Policy", href: "/privacy" },
+            { label: "Termini di Servizio", href: "/terms" },
+            { label: "Cookie Policy", href: "/cookies" },
+          ].map((link, i) => (
+            <Link key={i} href={link.href} className="text-[10px] font-mono hover:underline" style={{ color: "var(--text-muted)" }}>
+              {link.label}
+            </Link>
+          ))}
+        </div>
       </footer>
     </div>
   );

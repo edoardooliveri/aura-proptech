@@ -25,7 +25,99 @@ const fadeUpView = (delay = 0) => ({
   transition: { duration: 0.7, delay, ease } as const,
 });
 
+<<<<<<< HEAD
 // ── Servizi inclusi in Aura Elite ──────────────────────────────
+=======
+// ── Piani ────────────────────────────────────────────────────────
+const plans = [
+  {
+    id: "starter",
+    name: "Aura Starter",
+    icon: Globe,
+    badge: "BASE",
+    badgeColor: "#64748b",
+    setup: 399.99,
+    monthly: 24.99,
+    setupLabel: "€399,99",
+    monthlyLabel: "€24,99",
+    desc: "Il sito web professionale per la tua agenzia. Perfetto per chi vuole una presenza online moderna senza AI.",
+    highlight: false,
+    features: [
+      "Sito web professionale responsive",
+      "Design dark/light personalizzato",
+      "Pannello admin intuitivo",
+      "Database immobili con gestione portfolio",
+      "Hosting e dominio inclusi",
+      "Supporto email",
+      "Aggiornamenti di sicurezza continui",
+    ],
+    notIncluded: [
+      "AI Concierge",
+      "Qualificazione lead automatica",
+      "WhatsApp Business",
+      "Report mensile efficienza",
+    ],
+    ctaLabel: "SCEGLI STARTER",
+  },
+  {
+    id: "professional",
+    name: "Aura Professional",
+    icon: Rocket,
+    badge: "POPOLARE",
+    badgeColor: "#0070F3",
+    setup: 999.99,
+    monthly: 149.99,
+    setupLabel: "€999,99",
+    monthlyLabel: "€149,99",
+    desc: "Sito web + AI Concierge che risponde ai tuoi clienti 24/7. Il pacchetto ideale per agenzie in crescita.",
+    highlight: true,
+    features: [
+      "Tutto di Starter, più:",
+      "AI Concierge 24/7 personalizzata",
+      "Qualificazione lead automatica",
+      "Integrazione WhatsApp Business",
+      "Report mensile sull'efficienza",
+      "Personalizzazione brand e tone of voice",
+      "Training AI sulle tue zone e portfolio",
+      "Supporto prioritario email e chat",
+    ],
+    notIncluded: [
+      "AI multilingue avanzata",
+      "Dashboard analytics custom",
+      "Account manager dedicato",
+    ],
+    ctaLabel: "SCEGLI PROFESSIONAL",
+  },
+  {
+    id: "enterprise",
+    name: "Aura Enterprise",
+    icon: Crown,
+    badge: "PREMIUM",
+    badgeColor: "#FF2D78",
+    setup: 1999.99,
+    monthly: 199.99,
+    setupLabel: "€1.999,99",
+    monthlyLabel: "€199,99",
+    desc: "L'esperienza completa. AI avanzata multilingue, analytics custom, account manager dedicato e integrazioni su misura.",
+    highlight: false,
+    features: [
+      "Tutto di Professional, più:",
+      "AI Concierge multilingue avanzata",
+      "Flussi WhatsApp automatizzati",
+      "Dashboard analytics personalizzata",
+      "Account manager dedicato",
+      "Integrazioni CRM su misura",
+      "Priorità su aggiornamenti e nuove feature",
+      "Onboarding premium con strategia AI",
+      "SLA garantito su tempi di risposta",
+    ],
+    notIncluded: [],
+    ctaLabel: "SCEGLI ENTERPRISE",
+  },
+];
+
+// ── Servizi inclusi ─────────────────────────────────────────────
+>>>>>>> 1bfb328 (feat: dashboard cliente, admin panel, configuratore live, notifiche, recensioni, before/after)
 const services = [
   {
     icon: Bot,
@@ -236,12 +328,160 @@ export default function PricingPage() {
                     PIANO UNICO
                   </div>
 
+<<<<<<< HEAD
                   {/* Price */}
                   <div className="mb-3">
                     <div className="flex items-baseline justify-center gap-3 mb-2">
                       <span
                         className="text-7xl md:text-8xl font-mono font-bold tracking-tighter"
                         style={{ color: "white" }}
+=======
+                    <div className="p-8 md:p-10 flex flex-col flex-1">
+                      {/* Badge */}
+                      <div className="flex items-center justify-between mb-6">
+                        <div
+                          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[10px] font-mono font-bold"
+                          style={{
+                            background: `${plan.badgeColor}15`,
+                            border: `1px solid ${plan.badgeColor}40`,
+                            color: plan.badgeColor,
+                          }}
+                        >
+                          <plan.icon size={12} className="fill-current" />
+                          {plan.badge}
+                        </div>
+                        {plan.highlight && (
+                          <Star size={16} className="fill-current" style={{ color: "#F59E0B" }} />
+                        )}
+                      </div>
+
+                      {/* Plan name */}
+                      <h3 className="font-mono font-bold text-xl mb-2" style={{ color: "var(--text-primary)" }}>
+                        {plan.name}
+                      </h3>
+                      <p className="text-sm mb-6 leading-relaxed" style={{ color: "var(--text-muted)" }}>
+                        {plan.desc}
+                      </p>
+
+                      {/* Price */}
+                      <div className="mb-6">
+                        <div className="flex items-baseline gap-2 mb-1">
+                          <span
+                            className="text-5xl font-mono font-bold tracking-tighter"
+                            style={{ color: "white" }}
+                          >
+                            {plan.monthlyLabel}
+                          </span>
+                          <span className="text-base font-mono" style={{ color: "var(--text-muted)" }}>
+                            /mese
+                          </span>
+                        </div>
+
+                        {/* Setup prominente */}
+                        <div
+                          className="rounded-xl p-4 mt-4 flex flex-col gap-3"
+                          style={{
+                            background: "linear-gradient(135deg, rgba(255,45,120,0.06), rgba(123,47,255,0.04))",
+                            border: "1px solid rgba(255,45,120,0.2)",
+                          }}
+                        >
+                          {/* Setup una tantum — grande e visibile */}
+                          <div className="flex items-center justify-between">
+                            <div className="flex flex-col">
+                              <span className="text-[10px] font-mono uppercase tracking-widest mb-0.5" style={{ color: "rgba(255,45,120,0.7)" }}>
+                                Pagamento iniziale
+                              </span>
+                              <span className="text-xs font-mono" style={{ color: "var(--text-muted)" }}>
+                                Setup una tantum + IVA
+                              </span>
+                            </div>
+                            <span className="text-2xl font-mono font-black tracking-tight" style={{ color: "#FF2D78" }}>
+                              {plan.setupLabel}
+                            </span>
+                          </div>
+
+                          <div className="h-px" style={{ background: "rgba(255,255,255,0.08)" }} />
+
+                          {/* Canone mensile */}
+                          <div className="flex items-center justify-between">
+                            <div className="flex flex-col">
+                              <span className="text-[10px] font-mono uppercase tracking-widest mb-0.5" style={{ color: "rgba(0,112,243,0.7)" }}>
+                                Canone ricorrente
+                              </span>
+                              <span className="text-xs font-mono" style={{ color: "var(--text-muted)" }}>
+                                Addebito mensile
+                              </span>
+                            </div>
+                            <span className="text-lg font-mono font-bold" style={{ color: "var(--text-primary)" }}>
+                              {plan.monthlyLabel}<span className="text-xs font-normal" style={{ color: "var(--text-muted)" }}>/mese</span>
+                            </span>
+                          </div>
+
+                          <div className="h-px" style={{ background: "rgba(255,255,255,0.08)" }} />
+
+                          {/* Totale primo anno */}
+                          <div className="flex items-center justify-between">
+                            <span className="text-xs font-mono font-bold" style={{ color: "var(--text-muted)" }}>
+                              Totale primo anno
+                            </span>
+                            <span className="text-base font-mono font-black" style={{ color: "var(--blue-bright)" }}>
+                              €{new Intl.NumberFormat("it-IT").format(Math.round(plan.setup + plan.monthly * 12))}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <p className="text-xs font-mono mb-6" style={{ color: "var(--text-muted)" }}>
+                        Operativo in 7 giorni · Disdici quando vuoi · Nessun vincolo
+                      </p>
+
+                      {/* Features */}
+                      <div className="flex flex-col gap-3 mb-6 flex-1">
+                        {plan.features.map((feat, i) => (
+                          <div key={i} className="flex items-start gap-2.5">
+                            <div
+                              className="w-4 h-4 rounded flex items-center justify-center flex-shrink-0 mt-0.5"
+                              style={{ background: "rgba(0,199,129,0.08)", border: "1px solid rgba(0,199,129,0.15)" }}
+                            >
+                              <Check size={9} style={{ color: "#00C781" }} />
+                            </div>
+                            <span className="text-sm font-mono" style={{ color: "var(--text-secondary)" }}>
+                              {feat}
+                            </span>
+                          </div>
+                        ))}
+                        {plan.notIncluded.map((feat, i) => (
+                          <div key={`no-${i}`} className="flex items-start gap-2.5 opacity-40">
+                            <div
+                              className="w-4 h-4 rounded flex items-center justify-center flex-shrink-0 mt-0.5"
+                              style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)" }}
+                            >
+                              <X size={9} style={{ color: "var(--text-muted)" }} />
+                            </div>
+                            <span className="text-sm font-mono" style={{ color: "var(--text-muted)" }}>
+                              {feat}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* CTA */}
+                      <motion.button
+                        whileHover={{ scale: 1.03 }}
+                        whileTap={{ scale: 0.97 }}
+                        onClick={() => handleCheckout(plan.id)}
+                        disabled={checkoutLoading !== null}
+                        className="group inline-flex items-center justify-center gap-2.5 w-full px-6 py-4 rounded-xl font-mono font-bold text-sm text-white transition-all disabled:opacity-70"
+                        style={{
+                          background: plan.highlight
+                            ? "linear-gradient(135deg, #0070F3, #7B2FFF)"
+                            : "rgba(255,255,255,0.06)",
+                          boxShadow: plan.highlight
+                            ? "0 0 40px rgba(0,112,243,0.4), 0 8px 32px rgba(0,0,0,0.4)"
+                            : "none",
+                          border: plan.highlight ? "none" : "1px solid rgba(255,255,255,0.1)",
+                        }}
+>>>>>>> 1bfb328 (feat: dashboard cliente, admin panel, configuratore live, notifiche, recensioni, before/after)
                       >
                         €149
                       </span>
