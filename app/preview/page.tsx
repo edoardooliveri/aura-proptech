@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import {
-  Zap, Palette, Type, Search, Home, Phone, Mail,
+  Palette, Type, Search, Home, Phone, Mail,
   MessageCircle, Sparkles, ArrowRight, RotateCcw,
 } from "lucide-react";
 
@@ -43,12 +43,9 @@ export default function PreviewPage() {
       {/* Header */}
       <nav className="fixed top-0 left-0 right-0 z-50 glass-strong">
         <div className="flex items-center justify-between px-6 h-16 max-w-7xl mx-auto">
-          <div className="flex items-center gap-2.5">
-            <div className="w-7 h-7 rounded-lg flex items-center justify-center" style={{ background: "linear-gradient(135deg, #0070F3, #7B2FFF)" }}>
-              <Zap size={14} />
-            </div>
-            <span className="font-mono font-bold text-sm">AURA<span style={{ color: "#0070F3" }}>PROPTECH</span></span>
-          </div>
+          <a href="/" className="flex items-center gap-2">
+            <img src="/logo.png" alt="Aura PropTech" className="h-9" style={{ mixBlendMode: "screen" }} />
+          </a>
           <div className="flex items-center gap-3">
             <span className="text-xs font-mono px-3 py-1 rounded-full" style={{ background: "rgba(0,112,243,0.1)", color: "#0070F3", border: "1px solid rgba(0,112,243,0.2)" }}>
               Configuratore Live
