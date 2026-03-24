@@ -297,7 +297,7 @@ const t = {
 
   // ── Footer ──────────────────────────────────────────────────
   footer: {
-    copy: { it: "© 2026 Aura PropTech · Built in Italy · Powered by Gemini AI", en: "© 2026 Aura PropTech · Built in Italy · Powered by Gemini AI" },
+    copy: { it: "© 2026 Aura PropTech · Built in Italy", en: "© 2026 Aura PropTech · Built in Italy" },
   },
 } as const;
 

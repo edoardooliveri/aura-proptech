@@ -30,7 +30,7 @@ const mockClient = {
   subscriptionStart: "2026-02-01",
   subscriptionEnd: "2026-08-01",
   nextPayment: "2026-04-01",
-  monthlyPrice: "€149,99",
+  monthlyPrice: "€99,99",
   aiConversations: 1247,
   leadsGenerated: 89,
   pageViews: 12450,
@@ -103,7 +103,7 @@ export default function DashboardPage() {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-10">
           <h1 className="font-mono text-3xl md:text-4xl font-bold mb-2">{client.agencyName}</h1>
           <p className="text-sm font-mono" style={{ color: "var(--text-muted)" }}>
-            Piano {client.plan.charAt(0).toUpperCase() + client.plan.slice(1)} · Dashboard cliente
+            Piano Aura Professional · Dashboard cliente
           </p>
         </motion.div>
 
@@ -140,7 +140,7 @@ export default function DashboardPage() {
               </div>
               <div className="flex flex-col gap-3">
                 {[
-                  { label: "Piano", value: client.plan.charAt(0).toUpperCase() + client.plan.slice(1) },
+                  { label: "Piano", value: "Aura Professional" },
                   { label: "Canone mensile", value: client.monthlyPrice },
                   { label: "Prossimo pagamento", value: client.nextPayment },
                   { label: "Giorni rimanenti", value: `${daysLeft} giorni` },

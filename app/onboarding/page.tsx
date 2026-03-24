@@ -182,7 +182,7 @@ function OnboardingContent() {
             <span className="font-mono font-bold text-sm">AURA<span style={{ color: "#0070F3" }}>PROPTECH</span></span>
           </div>
           <span className="text-xs font-mono px-3 py-1 rounded-full" style={{ background: "rgba(0,112,243,0.1)", color: "#0070F3", border: "1px solid rgba(0,112,243,0.2)" }}>
-            Onboarding · {planParam.charAt(0).toUpperCase() + planParam.slice(1)}
+            Onboarding · Aura {planParam.charAt(0).toUpperCase() + planParam.slice(1)}
           </span>
         </div>
 
@@ -522,7 +522,7 @@ function OnboardingContent() {
                     { label: "Layout", value: layoutOptions.find(l => l.id === form.layoutPreference)?.label ?? form.layoutPreference },
                     { label: "Zone principali", value: form.zonesPrimary.split("\n").filter(Boolean).length + " zone" },
                     ...(planParam !== "starter" ? [{ label: "AI", value: form.aiName + " — " + form.aiRole }] : []),
-                    { label: "Piano", value: planParam.charAt(0).toUpperCase() + planParam.slice(1) },
+                    { label: "Piano", value: "Aura " + (planParam.charAt(0).toUpperCase() + planParam.slice(1)) },
                   ].map((item, i) => (
                     <div key={i} className="flex items-center justify-between py-3 px-4 rounded-xl" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}>
                       <span className="text-xs font-mono" style={{ color: "var(--text-muted)" }}>{item.label}</span>

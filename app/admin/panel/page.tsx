@@ -34,38 +34,38 @@ const mockClients: Client[] = [
     id: "1", agencyName: "Armonie Immobiliare", email: "info@armonie.it",
     plan: "professional", siteStatus: "live", siteUrl: "armonie-immobiliare.it",
     createdAt: "2025-12-01", subscriptionEnd: "2026-12-01",
-    monthlyRevenue: 149.99, aiConversations: 3420, leadsGenerated: 234, pendingRequests: 0,
+    monthlyRevenue: 99.99, aiConversations: 3420, leadsGenerated: 234, pendingRequests: 0,
   },
   {
     id: "2", agencyName: "Ferretti Immobiliare", email: "info@ferretti.it",
     plan: "professional", siteStatus: "live", siteUrl: "ferretti-immobiliare.it",
     createdAt: "2026-01-15", subscriptionEnd: "2026-07-15",
-    monthlyRevenue: 149.99, aiConversations: 1247, leadsGenerated: 89, pendingRequests: 1,
+    monthlyRevenue: 99.99, aiConversations: 1247, leadsGenerated: 89, pendingRequests: 1,
   },
   {
     id: "3", agencyName: "Casa & Sole", email: "info@casaesole.it",
     plan: "enterprise", siteStatus: "live", siteUrl: "casaesole.it",
     createdAt: "2026-02-01", subscriptionEnd: "2026-08-01",
-    monthlyRevenue: 199.99, aiConversations: 2890, leadsGenerated: 178, pendingRequests: 2,
+    monthlyRevenue: 149.99, aiConversations: 2890, leadsGenerated: 178, pendingRequests: 2,
   },
   {
     id: "4", agencyName: "Russo Real Estate", email: "info@russoreal.it",
     plan: "starter", siteStatus: "building", siteUrl: "—",
     createdAt: "2026-03-10", subscriptionEnd: "2026-09-10",
-    monthlyRevenue: 24.99, aiConversations: 0, leadsGenerated: 0, pendingRequests: 0,
+    monthlyRevenue: 49.99, aiConversations: 0, leadsGenerated: 0, pendingRequests: 0,
   },
   {
     id: "5", agencyName: "Liguria Home", email: "info@liguriahome.it",
     plan: "professional", siteStatus: "pending", siteUrl: "—",
     createdAt: "2026-03-22", subscriptionEnd: "2026-09-22",
-    monthlyRevenue: 149.99, aiConversations: 0, leadsGenerated: 0, pendingRequests: 0,
+    monthlyRevenue: 99.99, aiConversations: 0, leadsGenerated: 0, pendingRequests: 0,
   },
 ];
 
-const planConfig: Record<Plan, { color: string; label: string }> = {
-  starter: { color: "#64748b", label: "Starter" },
-  professional: { color: "#0070F3", label: "Professional" },
-  enterprise: { color: "#FF2D78", label: "Enterprise" },
+const planConfig: Record<Plan, { color: string; label: string; price: string }> = {
+  starter: { color: "#64748b", label: "Starter", price: "€49,99/mese" },
+  professional: { color: "#0070F3", label: "Professional", price: "€99,99/mese" },
+  enterprise: { color: "#FF2D78", label: "Enterprise", price: "€199,99/mese" },
 };
 
 const statusConfig: Record<SiteStatus, { color: string; label: string; icon: typeof CheckCircle }> = {
