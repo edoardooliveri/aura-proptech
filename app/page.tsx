@@ -52,7 +52,7 @@ export default function LandingPage() {
           <img src="/logo.svg" alt="Aura PropTech" className="h-14" />
         </Link>
 
-        <div className="hidden md:flex items-center gap-8 text-sm font-mono" style={{ color: "var(--text-secondary)" }}>
+        <div className="hidden md:flex items-center gap-8 text-sm font-mono absolute left-1/2 -translate-x-1/2" style={{ color: "var(--text-secondary)" }}>
           {navLinks.map(([label, href]) => (
             <Link key={href} href={href} className="hover:text-white transition-colors duration-300">
               {label}
