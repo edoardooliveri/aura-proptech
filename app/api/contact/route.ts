@@ -1,5 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 import { NextRequest, NextResponse } from "next/server";
+import { Resend } from "resend";
 
 export const dynamic = "force-dynamic";
 
@@ -54,6 +55,30 @@ export async function POST(req: NextRequest) {
     if (dbError) {
       console.error("[Contact] Supabase error:", dbError.message);
       return NextResponse.json({ error: "Errore nel salvataggio." }, { status: 500 });
+    }
+
+    // Invia email di notifica a Edoardo
+    const resendKey = process.env.RESEND_API_KEY;
+    const notifyEmail = process.env.NOTIFY_EMAIL || "edoardo.oliveri07@gmail.com";
+    if (resendKey) {
+      const resend = new Resend(resendKey);
+      await resend.emails.send({
+        from: "Core AI <notifiche@auraproptech.io>",
+        to: [notifyEmail],
+        subject: `Nuovo Contatto dal sito: ${name}`,
+        html: `
+          <div style="font-family:monospace;background:#0A0A0F;color:#fff;padding:40px;border-radius:16px;">
+            <h1 style="color:#0070F3;">Nuovo Contatto dal sito</h1>
+            <hr style="border-color:#222;" />
+            <p><strong>Nome/Agenzia:</strong> ${name}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Telefono:</strong> ${phone || "N/D"}</p>
+            <p><strong>Messaggio:</strong> ${message || "N/D"}</p>
+            <p><strong>Sorgente:</strong> ${source}</p>
+            <p><strong>Data:</strong> ${new Date().toLocaleString("it-IT")}</p>
+          </div>
+        `,
+      }).catch(err => console.error("[Contact] Errore invio email resend:", err));
     }
 
     console.log("[Contact] Lead saved:", email);

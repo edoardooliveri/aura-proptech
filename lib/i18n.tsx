@@ -21,7 +21,7 @@ const t = {
     badge: { it: "Siti web immobiliari con AI integrata", en: "AI-Powered Real Estate Websites" },
     title1: { it: "Ricreiamo il tuo", en: "We rebuild your" },
     title2: { it: "sito immobiliare", en: "real estate website" },
-    title3: { it: "con l'AI dentro.", en: "with AI built in." },
+    title3: { it: "con l'AI integrata.", en: "with AI built in." },
     sub: {
       it: "Non un chatbot da aggiungere. Un sito web completo, moderno, con intelligenza artificiale integrata che parla con i clienti, qualifica i lead e fissa appuntamenti — 24 ore su 24.",
       en: "Not a chatbot to add on. A complete, modern website with integrated artificial intelligence that talks to clients, qualifies leads and books appointments — 24/7.",

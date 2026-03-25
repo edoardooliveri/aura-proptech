@@ -99,7 +99,6 @@ export default function LandingPage() {
         style={{ paddingTop: "64px" }}
       >
         <motion.div style={{ opacity: heroOpacity }} className="relative max-w-5xl mx-auto">
-          </motion.div>
 
           {/* Title */}
           <motion.h1

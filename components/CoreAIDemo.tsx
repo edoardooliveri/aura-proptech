@@ -77,8 +77,8 @@ const QUICK_PROMPTS = [
 ];
 
 const VALUE_PER_HOUR = 150;
-const AURA_SETUP = 1499;
-const AURA_MONTHLY = 149;
+const AURA_SETUP = 1000;
+const AURA_MONTHLY = 99.99;
 
 const PDF_TRIGGER_MSG =
   "Ho consolidato i dati della tua agenzia in questo Report Strategico. Scaricalo per vedere dove stai perdendo sangue.";
@@ -238,7 +238,7 @@ function ROIPanel({ m }: { m: ROIMetrics }) {
         <ROIBadge icon={Clock} label="Ore perse/giorno" value={`${m.hoursDaily}h × ${m.agents || 1}`} color="pink" delay={0.08} />
       )}
       <ROIBadge icon={TrendingDown} label="Perdita annua" value={`-€${fmt(m.lossAnnual)}`} color="pink" delay={0.16} />
-      <ROIBadge icon={TrendingUp} label="Con Aura Elite" value={`€${fmt(m.auraCostAnnual!)}/anno`} color="blue" delay={0.24} />
+      <ROIBadge icon={TrendingUp} label="Con Aura Professional" value={`€${fmt(m.auraCostAnnual!)}/anno`} color="blue" delay={0.24} />
       <ROIBadge
         icon={Zap}
         label="ROI"
@@ -744,7 +744,7 @@ function CoreAIChatInner() {
                 ) : (
                   <>
                     <Zap size={13} />
-                    ATTIVA AURA ELITE ORA
+                    ATTIVA AURA PROFESSIONAL ORA
                     <ArrowRight size={12} />
                   </>
                 )}

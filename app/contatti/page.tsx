@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Clock, Zap, Sparkles, ArrowRight } from "lucide-react";
+import { Mail, Clock, Zap, Sparkles, ArrowRight, Phone } from "lucide-react";
 import Link from "next/link";
 import ContactForm from "@/components/ContactForm";
 
@@ -59,6 +59,19 @@ export default function ContattiPage() {
               <a href="mailto:edoardo.oliveri07@gmail.com" className="font-mono text-sm font-semibold hover:underline" style={{ color: "#0070F3" }}>
                 edoardo.oliveri07@gmail.com
               </a>
+            </div>
+
+            <div className="rounded-xl p-5" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}>
+              <div className="flex items-center gap-2 mb-2">
+                <Phone size={14} style={{ color: "rgba(255,255,255,0.4)" }} />
+                <p className="text-[10px] font-mono uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.4)" }}>Telefono</p>
+              </div>
+              <p className="font-mono text-sm font-semibold mb-1" style={{ color: "white" }}>
+                +1 (970) 234-2585
+              </p>
+              <p className="font-mono text-sm font-semibold" style={{ color: "white" }}>
+                +39 3888058591
+              </p>
             </div>
 
             <div className="rounded-xl p-5" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}>

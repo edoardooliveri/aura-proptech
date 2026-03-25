@@ -35,7 +35,7 @@ async function notifyEdoardo(
   planId: string
 ) {
   const resendKey = process.env.RESEND_API_KEY;
-  const notifyEmail = process.env.NOTIFY_EMAIL || "info@auraproptech.io";
+  const notifyEmail = process.env.NOTIFY_EMAIL || "edoardo.oliveri07@gmail.com";
   const plan = PLAN_CONFIG[planId] || PLAN_CONFIG.professional;
 
   console.log(
