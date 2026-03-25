@@ -84,7 +84,7 @@ export default function DashboardPage() {
       <nav className="fixed top-0 left-0 right-0 z-50 glass-strong">
         <div className="flex items-center justify-between px-6 h-16 max-w-6xl mx-auto">
           <a href="/" className="flex items-center gap-2">
-            <img src="/logo.svg" alt="Aura PropTech" className="h-14" />
+            <img src="/logo.svg" alt="Aura PropTech" className="h-8 md:h-14" />
           </a>
           <div className="flex items-center gap-3">
             <span className="text-xs font-mono px-3 py-1 rounded-full" style={{ background: `${status.color}15`, color: status.color, border: `1px solid ${status.color}40` }}>

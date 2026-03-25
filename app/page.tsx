@@ -49,7 +49,7 @@ export default function LandingPage() {
         className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 md:px-6 lg:px-12 h-20 bg-black border-b border-white/5"
       >
         <Link href="/" className="flex items-center gap-2">
-          <img src="/logo.svg" alt="Aura PropTech" className="h-14" />
+          <img src="/logo.svg" alt="Aura PropTech" className="h-8 md:h-14" />
         </Link>
 
         <div className="hidden md:flex items-center gap-8 text-sm font-mono absolute left-1/2 -translate-x-1/2" style={{ color: "var(--text-secondary)" }}>
@@ -99,20 +99,6 @@ export default function LandingPage() {
         style={{ paddingTop: "64px" }}
       >
         <motion.div style={{ opacity: heroOpacity }} className="relative max-w-5xl mx-auto">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 40, filter: "blur(8px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 0.7, ease }}
-            className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full text-xs font-mono mb-8"
-            style={{
-              background: "rgba(0,112,243,0.08)",
-              border: "1px solid rgba(0,112,243,0.25)",
-              color: "var(--blue-bright)",
-            }}
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-current animate-pulse" />
-            V0.1 BETA
           </motion.div>
 
           {/* Title */}
