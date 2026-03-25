@@ -46,10 +46,10 @@ export default function LandingPage() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease }}
-        className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 md:px-6 lg:px-12 h-16 glass-strong"
+        className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 md:px-6 lg:px-12 h-20 bg-black border-b border-white/5"
       >
         <Link href="/" className="flex items-center gap-2">
-          <img src="/logo.png" alt="Aura PropTech" className="h-9" style={{ mixBlendMode: "screen" }} />
+          <img src="/logo.png" alt="Aura PropTech" className="h-14" />
         </Link>
 
         <div className="hidden md:flex items-center gap-8 text-sm font-mono" style={{ color: "var(--text-secondary)" }}>
@@ -354,7 +354,7 @@ export default function LandingPage() {
             {/* Brand */}
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <img src="/logo.png" alt="Aura PropTech" className="h-8" style={{ mixBlendMode: "screen" }} />
+                <img src="/logo.png" alt="Aura PropTech" className="h-12" />
               </div>
               <p style={{ color: "var(--text-secondary)" }} className="text-sm">
                 {tx("footer.tagline")}
