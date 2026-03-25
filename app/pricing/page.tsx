@@ -113,7 +113,7 @@ export default function PricingPage() {
       {/* ── Navbar ──────────────────────────────────────────────── */}
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 lg:px-12 h-20 bg-black border-b border-white/5">
         <Link href="/" className="flex items-center gap-2">
-          <img src="/logo.png" alt="Aura PropTech" className="h-14" />
+          <img src="/logo.svg" alt="Aura PropTech" className="h-14" />
         </Link>
         <div className="hidden md:flex items-center gap-8 text-sm font-mono" style={{ color: "var(--text-secondary)" }}>
           <Link href="/" className="hover:text-white transition-colors">Home</Link>
@@ -472,7 +472,7 @@ export default function PricingPage() {
         style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}
       >
         <div className="flex items-center justify-center mb-4">
-          <img src="/logo.png" alt="Aura PropTech" className="h-12" />
+          <img src="/logo.svg" alt="Aura PropTech" className="h-12" />
         </div>
         <p className="text-xs font-mono" style={{ color: "var(--text-muted)" }}>
           © 2026 Aura PropTech · Built in Italy · Powered by Gemini AI
